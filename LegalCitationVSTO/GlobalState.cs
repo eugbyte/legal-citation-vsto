@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LegalCitationVSTO
 {
+    // To communicate between the ribbon and ThisAddIn
     static class GlobalState
     {
         public static bool Enabled = true;

@@ -38,6 +38,8 @@ namespace LegalCitationVSTO
             if (footnoteText == null) return;
 
             // Remove footnote tokens from paragraph
+            // This method of replacing is removing previous footnotes and styling
+            // Need to zone in on the match
             paragraph.Range.Text = Regex.Replace(text, StringService.FootnoteRegex, replacement: "");
 
             // When text is replaced, strangely a linebreak is inserted
