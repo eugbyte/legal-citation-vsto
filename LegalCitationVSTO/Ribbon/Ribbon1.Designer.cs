@@ -6,11 +6,7 @@ namespace LegalCitationVSTO
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
-
-        internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
-        public Microsoft.Office.Tools.Ribbon.RibbonButton toggleButton;
-        private Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
+        private System.ComponentModel.IContainer components = null;        
 
         public Ribbon1()
             : base(Globals.Factory.GetRibbonFactory())
@@ -30,6 +26,10 @@ namespace LegalCitationVSTO
             }
             base.Dispose(disposing);            
         }
+
+        internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
+        public Microsoft.Office.Tools.Ribbon.RibbonButton toggleButton;
+        private Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
 
         #region Component Designer generated code
 

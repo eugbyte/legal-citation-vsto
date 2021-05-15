@@ -9,8 +9,11 @@ namespace LegalCitationVSTO
 {
     public partial class Ribbon1
     {
+
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
+            RibbonButton button = Globals.Ribbons.Ribbon1.toggleButton;
+            button.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
         }
 
         private void button1_Click(object sender, RibbonControlEventArgs e)
@@ -24,7 +27,9 @@ namespace LegalCitationVSTO
                 { true, "Disable" }
             };
 
-            Globals.Ribbons.Ribbon1.toggleButton.Label = textDict[isEnabled];
+            RibbonButton button = Globals.Ribbons.Ribbon1.toggleButton;
+
+            button.Label = textDict[isEnabled];
             e.Control.Context();
         }
     }

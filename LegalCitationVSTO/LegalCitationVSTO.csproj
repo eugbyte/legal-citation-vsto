@@ -160,6 +160,8 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Service\StringService\IString.cs" />
+    <Compile Include="Service\StringService\StringService.cs" />
     <Compile Include="Word\DocumentSelectionChange.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
