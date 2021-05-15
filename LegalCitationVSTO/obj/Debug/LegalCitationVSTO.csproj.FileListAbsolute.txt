@@ -22,3 +22,16 @@ C:\Users\eugen\Codes\legal-citation-extension\legal-citation-vsto\LegalCitationV
 C:\Users\eugen\Codes\legal-citation-extension\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.csproj.CopyComplete
 C:\Users\eugen\Codes\legal-citation-extension\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.dll
 C:\Users\eugen\Codes\legal-citation-extension\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.pdb
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\LegalCitationVSTO.dll
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\LegalCitationVSTO.pdb
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\LegalCitationVSTO.dll.manifest
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\LegalCitationVSTO.vsto
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.dll
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.csprojAssemblyReference.cache
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.Properties.Resources.resources
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.csproj.GenerateResource.cache
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.csproj.CoreCompileInputs.cache
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.csproj.CopyComplete
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.dll
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.pdb
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.Ribbon1.resources
