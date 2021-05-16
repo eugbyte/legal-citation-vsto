@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Tools = Microsoft.Office.Tools.Word;
 
 namespace LegalCitationVSTO
@@ -16,7 +17,7 @@ namespace LegalCitationVSTO
         private void DocumentSelectionChange(Document nativeDocument)
         {
             Tools.Document vstoDoc = Globals.Factory.GetVstoObject(nativeDocument);
-            vstoDoc.SelectionChange += new Tools.SelectionEventHandler(ThisDocument_SelectionChange);           
+            vstoDoc.SelectionChange += new Tools.SelectionEventHandler(ThisDocument_SelectionChange);
         }
 
         private void ThisDocument_SelectionChange(object sender, Tools.SelectionEventArgs e)
@@ -31,8 +32,7 @@ namespace LegalCitationVSTO
 
             // Selection Event is expensive
             // Return immediately if no citation match
-            int matches = Regex.Matches(text, StringService.FootnoteRegex).Count;
-            if (matches != 1) return;
+            if (!Regex.IsMatch(text, StringService.FootnoteRegex)) return;
 
             string footnoteText = stringService.ExtractFootnoteText(text);
             if (footnoteText == null) return;
@@ -40,17 +40,28 @@ namespace LegalCitationVSTO
             // Remove footnote tokens from paragraph
             // This method of replacing is removing previous footnotes and styling
             // Need to zone in on the match
-            paragraph.Range.Text = Regex.Replace(text, StringService.FootnoteRegex, replacement: "");
+            // paragraph.Range.Text = Regex.Replace(text, StringService.FootnoteRegex, replacement: "");
+            string footnoteTextWithToken = stringService.FindMatch(text, StringService.FootnoteRegex);
+            SearchReplaceFootnoteToken(paragraph, footnoteTextWithToken);
 
-            // When text is replaced, strangely a linebreak is inserted
-            // Go back to the previous line before appending the footnote
-            paragraph.Range.Previous().Select();
-            Application.Selection.Select();
-            Application.Selection.Text = "";
             Application.Selection.Footnotes.Add(Range: paragraph.Range, Text: footnoteText);
 
-            // MessageBox.Show($"previous: {text}");
             return;
         }
+
+        private void SearchReplaceFootnoteToken(Paragraph paragraph, string footnoteText)
+        {
+            // MessageBox.Show($"{paragraph.Range.Text}");
+            Find findObject = paragraph.Range.Find;
+            findObject.ClearFormatting();
+
+            bool found =  findObject.Execute(
+                Replace: WdReplace.wdReplaceAll, 
+                FindText: footnoteText
+            );
+
+            MessageBox.Show(found.ToString());
+        }
+
     }
 }
