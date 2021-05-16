@@ -7,11 +7,17 @@ using System.Threading.Tasks;
 
 namespace LegalCitationVSTO.Service.StringService
 {
-    class StringService: IString
+    /// <summary>
+    /// String Service for regex operations.
+    /// </summary>
+    internal class StringService : IString
     {
+        /// <summary>
+        /// Regex for footnote sandiwiched by footnote token.
+        /// </summary>
         public static readonly string FootnoteRegex = @"__FOOTNOTE__.+__/FOOTNOTE__";
 
-        public string FindMatch (string text, string pattern)
+        public string FindMatch(string text, string pattern)
         {
             MatchCollection mc = Regex.Matches(text, pattern);
             if (mc.Count != 1) return null;
@@ -20,14 +26,13 @@ namespace LegalCitationVSTO.Service.StringService
             return match.Value;
         }
 
-        public string ExtractFootnoteText (string text)
+        public string ExtractFootnoteText(string text)
         {
-            string footnoteText = FindMatch(text, FootnoteRegex);
-            if (footnoteText == null) return  null;
-            footnoteText = Regex.Replace(footnoteText, "__FOOTNOTE__", "");
-            footnoteText = Regex.Replace(footnoteText, "__/FOOTNOTE__", "");
+            string footnoteText = this.FindMatch(text, FootnoteRegex);
+            if (footnoteText == null) return null;
+            footnoteText = Regex.Replace(footnoteText, "__FOOTNOTE__", string.Empty);
+            footnoteText = Regex.Replace(footnoteText, "__/FOOTNOTE__", string.Empty);
             return footnoteText;
         }
-
     }
 }

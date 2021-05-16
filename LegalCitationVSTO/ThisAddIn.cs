@@ -1,30 +1,26 @@
-﻿using Microsoft.Office.Interop.Word;
-using System.Text.RegularExpressions;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System;
 using LegalCitationVSTO.Service.StringService;
+using Microsoft.Office.Interop.Word;
 
 namespace LegalCitationVSTO
 {
+    /// <summary>
+    /// Entry point.
+    /// </summary>
     public partial class ThisAddIn
     {
         // Instantiate services
-        readonly IString stringService = new StringService();
+        private readonly IString stringService = new StringService();
 
-        private void ThisAddIn_Startup(object sender, System.EventArgs e)
+        private void ThisAddIn_Startup(object sender, EventArgs e)
         {
-            Application.DocumentOpen += new ApplicationEvents4_DocumentOpenEventHandler(DocumentSelectionChange);
-            ((ApplicationEvents4_Event)Application).NewDocument += new ApplicationEvents4_NewDocumentEventHandler(DocumentSelectionChange);
+            this.Application.DocumentOpen += new ApplicationEvents4_DocumentOpenEventHandler(this.DocumentSelectionChange);
+            ((ApplicationEvents4_Event)this.Application).NewDocument += new ApplicationEvents4_NewDocumentEventHandler(this.DocumentSelectionChange);
         }
 
-        private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
+        private void ThisAddIn_Shutdown(object sender, EventArgs e)
         {
         }
-
-        
 
         #region VSTO generated code
 
@@ -34,10 +30,10 @@ namespace LegalCitationVSTO
         /// </summary>
         private void InternalStartup()
         {
-            this.Startup += new System.EventHandler(ThisAddIn_Startup);
-            this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
+            this.Startup += new EventHandler(this.ThisAddIn_Startup);
+            this.Shutdown += new EventHandler(this.ThisAddIn_Shutdown);
         }
-        
+
         #endregion
     }
 }
