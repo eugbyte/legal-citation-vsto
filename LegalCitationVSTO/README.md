@@ -5,7 +5,7 @@
 <p>
     &nbsp;</p>
 <p>
-    ## Lint</p>
+    ## Lint&nbsp; </p>
 <p>
     Right click the Project &gt; Properties &gt; Code Analysis &gt; Active Rules &gt; Browse &gt; ~/LegalCitationVSTO/stylecop.ruleset&nbsp; </p>
 <p>

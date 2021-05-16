@@ -11,7 +11,7 @@ namespace LegalCitationVSTO
         public Ribbon1()
             : base(Globals.Factory.GetRibbonFactory())
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         /// <summary> 

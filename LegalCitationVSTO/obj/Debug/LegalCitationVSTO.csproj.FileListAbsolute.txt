@@ -35,3 +35,7 @@ C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitati
 C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.dll
 C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.pdb
 C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.csprojAssemblyReference.cache
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
