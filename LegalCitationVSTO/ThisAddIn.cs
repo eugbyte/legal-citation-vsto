@@ -5,11 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LegalCitationVSTO.Service.StringService;
 
 namespace LegalCitationVSTO
 {
     public partial class ThisAddIn
     {
+        // Instantiate services
+        readonly IString stringService = new StringService();
+
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             Application.DocumentOpen += new ApplicationEvents4_DocumentOpenEventHandler(DocumentSelectionChange);

@@ -13,7 +13,6 @@ namespace LegalCitationVSTO
 {
     public partial class ThisAddIn
     {
-        readonly IString stringService = new StringService();
         private void DocumentSelectionChange(Document nativeDocument)
         {
             Tools.Document vstoDoc = Globals.Factory.GetVstoObject(nativeDocument);
@@ -38,18 +37,15 @@ namespace LegalCitationVSTO
             if (footnoteText == null) return;
 
             // Remove footnote tokens from paragraph
-            // This method of replacing is removing previous footnotes and styling
-            // Need to zone in on the match
-            // paragraph.Range.Text = Regex.Replace(text, StringService.FootnoteRegex, replacement: "");
             string footnoteTextWithToken = stringService.FindMatch(text, StringService.FootnoteRegex);
-            SearchReplaceFootnoteToken(paragraph, footnoteTextWithToken);
+            SearchReplaceFootnoteFromParagraph(paragraph, footnoteTextWithToken);
 
-            Application.Selection.Footnotes.Add(Range: paragraph.Range, Text: footnoteText);
-
-            return;
+            Footnotes footnotes = Application.Selection.Footnotes;
+            Footnote footnote = footnotes.Add(Range: paragraph.Range, Text: footnoteText);
+            footnote.Range.Font.Color = WdColor.wdColorRed;
         }
 
-        private void SearchReplaceFootnoteToken(Paragraph paragraph, string footnoteText)
+        private void SearchReplaceFootnoteFromParagraph(Paragraph paragraph, string footnoteTextWithToken)
         {
             // MessageBox.Show($"{paragraph.Range.Text}");
             Find findObject = paragraph.Range.Find;
@@ -57,10 +53,11 @@ namespace LegalCitationVSTO
 
             bool found =  findObject.Execute(
                 Replace: WdReplace.wdReplaceAll, 
-                FindText: footnoteText
+                FindText: footnoteTextWithToken,
+                ReplaceWith: ""
             );
 
-            MessageBox.Show(found.ToString());
+            Console.WriteLine(found);
         }
 
     }

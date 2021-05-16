@@ -34,3 +34,4 @@ C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitati
 C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.csproj.CopyComplete
 C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.dll
 C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.pdb
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\obj\Debug\LegalCitationVSTO.csprojAssemblyReference.cache
