@@ -14,6 +14,12 @@ namespace LegalCitationVSTO
 
         private void ThisAddIn_Startup(object sender, EventArgs e)
         {
+            // This beta software will be availabe for one month
+            if (DateTime.Now > new DateTime(day: 28, month: 6, year: 2021))
+            {
+                return;
+            }
+
             this.Application.DocumentOpen += new ApplicationEvents4_DocumentOpenEventHandler(this.DocumentSelectionChange);
             ((ApplicationEvents4_Event)this.Application).NewDocument += new ApplicationEvents4_NewDocumentEventHandler(this.DocumentSelectionChange);
         }
