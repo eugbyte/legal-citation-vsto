@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Diagnostics;
 using LegalCitationVSTO.Service.StringService;
 using Microsoft.Office.Interop.Word;
+using WK.Libraries.SharpClipboardNS;
 
 namespace LegalCitationVSTO
 {
@@ -22,6 +24,9 @@ namespace LegalCitationVSTO
 
             this.Application.DocumentOpen += new ApplicationEvents4_DocumentOpenEventHandler(this.DocumentSelectionChange);
             ((ApplicationEvents4_Event)this.Application).NewDocument += new ApplicationEvents4_NewDocumentEventHandler(this.DocumentSelectionChange);
+
+            this.Application.DocumentOpen += new ApplicationEvents4_DocumentOpenEventHandler(this.ClipboardChange);
+            ((ApplicationEvents4_Event)this.Application).NewDocument += new ApplicationEvents4_NewDocumentEventHandler(this.ClipboardChange);
         }
 
         private void ThisAddIn_Shutdown(object sender, EventArgs e)

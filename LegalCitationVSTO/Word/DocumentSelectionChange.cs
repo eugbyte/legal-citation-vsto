@@ -11,6 +11,9 @@ using Tools = Microsoft.Office.Tools.Word;
 
 namespace LegalCitationVSTO
 {
+    /// <summary>
+    /// When the user copies text from the web extension.
+    /// </summary>
     public partial class ThisAddIn
     {
         private void DocumentSelectionChange(Document nativeDocument)
