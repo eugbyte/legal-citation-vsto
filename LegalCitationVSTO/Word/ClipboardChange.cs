@@ -3,16 +3,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Office.Interop.Word;
+using Microsoft.Office.Tools.Ribbon;
 using WK.Libraries.SharpClipboardNS;
 using static WK.Libraries.SharpClipboardNS.SharpClipboard;
 
 namespace LegalCitationVSTO
 {
     /// <summary>
-    /// When the user copies text from pdf files.
+    /// When the user copies text to windows clipboard.
     /// </summary>
     public partial class ThisAddIn
     {
@@ -24,24 +26,30 @@ namespace LegalCitationVSTO
             this.clipboard.ClipboardChanged += this.OnClipboardChange;
         }
 
+        /// <summary>
+        /// When the user copies text from pdf files.
+        /// </summary>
         private void OnClipboardChange(object sender, ClipboardChangedEventArgs e)
         {
-            Document doc = this.Application.ActiveDocument;
-
             Debug.WriteLine("Copy detected");
 
-            // Is the content copied of text type?
-            if (e.ContentType == ContentTypes.Text)
-            {
-                // Get the cut/copied text.
-                string copiedText = this.clipboard.ClipboardText;
-                string applicationName = e.SourceApplication.Name;
-                string title = e.SourceApplication.Title;
+            if (e.ContentType != ContentTypes.Text) return;
 
-                Debug.WriteLine(copiedText);
-                Debug.WriteLine(applicationName);
-                Debug.WriteLine(title);
-            }
+            string copiedText = this.clipboard.ClipboardText;
+            string applicationName = e.SourceApplication.Name;
+            string title = e.SourceApplication.Title;
+            int id = e.SourceApplication.ID;
+
+            Debug.WriteLine(copiedText);
+            Debug.WriteLine(id);
+            Debug.WriteLine(applicationName);
+            Debug.WriteLine(title);
+
+            if (!title.Contains(".pdf")) return;
+
+            Document doc = this.Application.ActiveDocument;
+            RibbonButton button = Globals.Ribbons.Ribbon1.pdfButton;
+            button.Label = title;
         }
     }
 }

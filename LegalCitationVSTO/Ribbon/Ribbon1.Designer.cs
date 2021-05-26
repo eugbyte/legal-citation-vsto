@@ -43,13 +43,17 @@ namespace LegalCitationVSTO
             this.tab1 = this.Factory.CreateRibbonTab();
             this.group1 = this.Factory.CreateRibbonGroup();
             this.toggleButton = this.Factory.CreateRibbonButton();
+            this.pdf = this.Factory.CreateRibbonGroup();
+            this.pdfButton = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.group1.SuspendLayout();
+            this.pdf.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
             // 
             this.tab1.Groups.Add(this.group1);
+            this.tab1.Groups.Add(this.pdf);
             this.tab1.Label = "Legal Citation";
             this.tab1.Name = "tab1";
             // 
@@ -66,7 +70,20 @@ namespace LegalCitationVSTO
             this.toggleButton.Name = "toggleButton";
             this.toggleButton.ScreenTip = "Toggle the extension";
             this.toggleButton.ShowImage = true;
-            this.toggleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button1_Click);
+            this.toggleButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.Button1_Click);
+            // 
+            // pdf
+            // 
+            this.pdf.Items.Add(this.pdfButton);
+            this.pdf.Label = "pdf";
+            this.pdf.Name = "pdf";
+            // 
+            // pdfButton
+            // 
+            this.pdfButton.Label = "placeholder";
+            this.pdfButton.Name = "pdfButton";
+            this.pdfButton.ScreenTip = "Click to insert footnote";
+            this.pdfButton.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.PdfButton_Click);
             // 
             // Ribbon1
             // 
@@ -78,13 +95,16 @@ namespace LegalCitationVSTO
             this.tab1.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
+            this.pdf.ResumeLayout(false);
+            this.pdf.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
-        #endregion
 
-        
+        #endregion
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton pdfButton;
+        private Microsoft.Office.Tools.Ribbon.RibbonGroup pdf;
     }
 
     partial class ThisRibbonCollection
