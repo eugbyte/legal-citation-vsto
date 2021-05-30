@@ -41,3 +41,5 @@ C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitati
 C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
 C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\SharpClipboard.dll
 C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\SharpClipboard.xml
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\RestSharp.dll
+C:\Users\eugen\Codes\legal-citation-applications\legal-citation-vsto\LegalCitationVSTO\bin\Debug\RestSharp.xml
