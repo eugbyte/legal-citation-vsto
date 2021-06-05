@@ -38,12 +38,11 @@ namespace LegalCitationVSTO
             RibbonButton button = Globals.Ribbons.Ribbon1.pdfButton;
             string footnoteText = button.Label;
             Footnotes footnotes = Globals.ThisAddIn.Application.Selection.Footnotes;
-            Footnote footnote = footnotes.Add(Text: footnoteText);
-            footnote.Range.Font.Color = WdColor.wdColorRed;
+            Range currentRange = Globals.ThisAddIn.Application.Selection.Range;
+            footnotes.Add(Range: currentRange, Text: footnoteText);
 
-            Document doc = Globals.ThisAddIn.Application.ActiveDocument;
-            Microsoft.Office.Interop.Word.Application application = Globals.ThisAddIn.Application;
-            
+            // Document doc = Globals.ThisAddIn.Application.ActiveDocument;
+            // Microsoft.Office.Interop.Word.Application application = Globals.ThisAddIn.Application;            
         }
     }
 }
