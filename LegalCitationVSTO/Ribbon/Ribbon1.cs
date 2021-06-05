@@ -36,8 +36,14 @@ namespace LegalCitationVSTO
         private void PdfButton_Click(object sender, RibbonControlEventArgs e)
         {
             RibbonButton button = Globals.Ribbons.Ribbon1.pdfButton;
-            Document doc = Globals.ThisAddIn.Application.ActiveDocument;
+            string footnoteText = button.Label;
+            Footnotes footnotes = Globals.ThisAddIn.Application.Selection.Footnotes;
+            Footnote footnote = footnotes.Add(Text: footnoteText);
+            footnote.Range.Font.Color = WdColor.wdColorRed;
 
+            Document doc = Globals.ThisAddIn.Application.ActiveDocument;
+            Microsoft.Office.Interop.Word.Application application = Globals.ThisAddIn.Application;
+            
         }
     }
 }

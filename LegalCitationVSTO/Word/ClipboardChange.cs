@@ -62,29 +62,36 @@ namespace LegalCitationVSTO
                 // So will be completed after code block below
                 Task.Run(async () =>
                 {
-                    string fetchedTitle = await this.GetFullTitle();
-                    newTitle = $"{fetchedTitle}\n{newTitle}";
-                    button.Label = newTitle;
+                    try
+                    {
+                        string fetchedTitle = await this.GetFullTitle();
+                        Debug.WriteLine(fetchedTitle);
+                    } catch (Exception error)
+                    {
+                        Debug.WriteLine(error.Message);
+                    }
 
-                    Debug.WriteLine(newTitle);
+                    // When you get the actual API, shift the code below in the try block
                     titleDict.Add(id, newTitle);
+                    button.Label = titleDict[id];
                 });
-            } else
+            }
+            else
             {
                 button.Label = titleDict[id];
             }
-
         }
 
+        /// <summary>
+        /// Mock the retrieval of the actual title.
+        /// </summary>
         private async Task<string> GetFullTitle()
         {
             Debug.WriteLine("starting fetch...");
             RestClient client = new RestClient("https://jsonplaceholder.typicode.com");
             RestRequest request = new RestRequest("todos/1", DataFormat.Json);
-            Dictionary<string, string> result = await client.GetAsync<Dictionary<string, string>>(request);
-            string title = result["title"];
-            Debug.WriteLine($"result: ${title}");
-            return $"{title}";
+            string result = await client.GetAsync<string>(request);
+            return result;
         }
     }
 }
